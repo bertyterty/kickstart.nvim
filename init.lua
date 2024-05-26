@@ -2,6 +2,7 @@ vim.cmd 'set expandtab'
 vim.cmd 'set tabstop=2'
 vim.cmd 'set softtabstop=2'
 vim.cmd 'set shiftwidth=2'
+vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>')
 
 --[[
 
@@ -244,7 +245,16 @@ require('lazy').setup({
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
-
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+      'MunifTanjim/nui.nvim',
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    },
+  },
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
   --    require('gitsigns').setup({ ... })
